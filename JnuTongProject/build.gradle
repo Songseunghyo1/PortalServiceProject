@@ -32,4 +32,6 @@ dependencies {
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.security:spring-security-test')
+	compile group: 'org.springframework', name: 'spring-jdbc', version: '3.1.0.RELEASE'
+	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
 }
