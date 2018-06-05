@@ -2,7 +2,7 @@ package kr.ac.jejunu.project.dao;
 
 import kr.ac.jejunu.project.ConnectionMaker;
 import kr.ac.jejunu.project.JnuTongConnectionMaker;
-import kr.ac.jejunu.project.Manager;
+import kr.ac.jejunu.project.management.Manager;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;

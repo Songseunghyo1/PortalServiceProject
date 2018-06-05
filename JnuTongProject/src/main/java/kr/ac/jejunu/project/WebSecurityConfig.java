@@ -1,6 +1,7 @@
 package kr.ac.jejunu.project;
 
 import kr.ac.jejunu.project.dao.ManagerDao;
+import kr.ac.jejunu.project.management.Manager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
