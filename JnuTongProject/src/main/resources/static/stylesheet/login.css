@@ -1,8 +1,21 @@
 #img {
-    width: 150px;
-    height: 150px;
+    float: left;
+    margin-right: 10px
+}
+
+#body {
+    width: 960px;
 }
 
 #labels {
     float: left;
+}
+
+#jnutongImg {
+    width: 100px;
+    height: 100px;
+}
+
+#main > div {
+    display:inline-block;
 }

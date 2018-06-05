@@ -6,26 +6,28 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/stylesheet/login.css">
 </head>
-<body style="width: 960px;">
+<body id="body">
     <div th:if="${param.error}">
-        <script>
+        <!--<script>
             alert("Check your account!");
-        </script>
+        </script>-->
     </div>
     <div th:if="${param.logout}">
-        <script>
+        <!--<script>
             alert("Good bye!");
-        </script>
+        </script>-->
     </div>
     <form th:action="@{/login}" method="post">
-        <div style="width: 450px; margin: 15px 5px">
-            <div id="img" style="float: left; margin-right: 10px">
-                <img src="http://via.placeholder.com/100x100" />
+        <div id="main">
+            <div id="img">
+                <img id="jnutongImg" src="/img/jnutong.PNG" />
             </div>
-            <div id="labels" style="margin: 20px 10px;">
+            <div>
                 <div style="margin: 10px 10px;"><label> ID : <input type="text" name="username"/> </label></div>
                 <div><label> PW: <input type="password" name="password"/> </label></div>
-                <div style="float: right; margin-right: 50px"><input type="submit" value="Sign In"/></div>
+            </div>
+            <div>
+                <div id="loginBtn"><input type="submit" value="Sign In"/></div>
             </div>
         </div>
     </form>

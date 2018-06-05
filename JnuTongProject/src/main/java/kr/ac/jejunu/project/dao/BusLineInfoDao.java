@@ -2,7 +2,7 @@ package kr.ac.jejunu.project.dao;
 
 import kr.ac.jejunu.project.ConnectionMaker;
 import kr.ac.jejunu.project.JnuTongConnectionMaker;
-import kr.ac.jejunu.project.bus.JnuBusStation;
+import kr.ac.jejunu.project.bus.BusLineInfo;
 import org.junit.Before;
 
 import java.sql.Connection;
@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 
-public class JnuBusStationDao {
+public class BusLineInfoDao {
     private ConnectionMaker connectionMaker;
 
     @Before
@@ -19,26 +19,28 @@ public class JnuBusStationDao {
         connectionMaker = new JnuTongConnectionMaker();
     }
 
-    public LinkedList<JnuBusStation> get() throws ClassNotFoundException, SQLException {
+    public LinkedList<BusLineInfo> get() throws SQLException, ClassNotFoundException {
         Connection connection = connectionMaker.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(
-                "SELECT * FROM jnu_bus_station");
+                "SELECT * FROM bus_line_info");
 
-        LinkedList<JnuBusStation> jnuBusStations = new LinkedList<>();
+        LinkedList<BusLineInfo> busLineInfos = new LinkedList<>();
 
         ResultSet resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()) {
-            JnuBusStation jnuBusStation = new JnuBusStation();
-            jnuBusStation.setId(resultSet.getInt("id"));
-            jnuBusStation.setName(resultSet.getString("name"));
-            jnuBusStations.add(jnuBusStation);
+            BusLineInfo busLineInfo = new BusLineInfo();
+            busLineInfo.setLineId(resultSet.getString("line_id"));
+            busLineInfo.setLineNo(resultSet.getString("line_no"));
+            busLineInfo.setDetailLineNo(resultSet.getString("detail_line_no"));
+            busLineInfo.setDescription(resultSet.getString("description"));
+            busLineInfos.add(busLineInfo);
         }
 
         resultSet.close();
         preparedStatement.close();
         connection.close();
 
-        return jnuBusStations;
+        return busLineInfos;
     }
 }
