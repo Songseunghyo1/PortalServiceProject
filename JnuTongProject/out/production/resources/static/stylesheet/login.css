@@ -1,0 +1,32 @@
+#img {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+#body {
+    align-items: center;
+    width: 960px;
+}
+
+#labels {
+    float: left;
+}
+
+#jnutongImg {
+    width: 100px;
+    height: 100px;
+}
+
+#main > div {
+    display:inline-block;
+}
+
+#pwd {
+    margin-left: 5px;
+}
+
+#loginBtn {
+    float: right;
+    margin-top: 5px;
+}
