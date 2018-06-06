@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>관리자 페이지</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montserrat|Rammetto+One" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheet/bus_one.css">
+</head>
+<body>
+</nav>
+<div id="wrap">
+    <nav id="main_lnb">
+        <ul>
+
+            <div class="sidenav">
+
+                <div id = "image"><a href="hello"><img src = "/img/jnutong-logo.png"></a></div>
+
+                <button class="dropdown-btn">
+                    <span>버스 관리</span>
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a href="bus_one">시내 버스</a>
+                    <a href="bus_two">교내 버스</a>
+                </div>
+                <a href="ect">기타 관리</a>
+            </div>
+
+            <script>
+                /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+                var dropdown = document.getElementsByClassName("dropdown-btn");
+                var i;
+                for (i = 0; i < dropdown.length; i++) {
+                    dropdown[i].addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        var dropdownContent = this.nextElementSibling;
+                        if (dropdownContent.style.display === "block") {
+                            dropdownContent.style.display = "none";
+                        } else {
+                            dropdownContent.style.display = "block";
+                        }
+                    });
+                }
+            </script>
+        </ul>
+    </nav>
+    <section>
+        <nav>
+            <div id="account">
+                <div id="hello" th:id="printHello" style="float: left; margin: 10px 10px">
+                    <h3 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h3>
+                </div>
+                <div id="btnsignout" th:id="signoutBtn" style="float: left; margin: 10px 10px">
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Sign Out"/>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div id="content_wrap">
+            <div id="content">
+                <article>
+                    <div id = "head">시내버스
+                    </div>
+                    <hr id = "line">
+                    <select name="option" id="opt">
+                        <option value="">선택</option>
+                        <option value="학기중">학기 중</option>
+                        <option value="방학">방학/공휴일</option>
+                    </select>
+                    <button type="button" id ="bt">확인</button>
+
+                </article>
+
+
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>

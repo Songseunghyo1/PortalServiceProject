@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/stylesheet/login.css">
+</head>
+<body id="body">
+    <div th:if="${param.error}">
+        <!--<script>
+            alert("Check your account!");
+        </script>-->
+    </div>
+    <div th:if="${param.logout}">
+        <!--<script>
+            alert("Good bye!");
+        </script>-->
+    </div>
+    <form th:action="@{/login}" method="post">
+        <div id="main">
+            <div id="img">
+                <img id="jnutongImg" src="/img/jnutong.PNG" />
+            </div>
+            <div>
+                <div style="margin: 10px 10px;"><label> ID : <input type="text" name="username"/> </label></div>
+                <div id="pwd"><label> PW: <input type="password" name="password"/> </label></div>
+                <div id="loginBtn"><input type="submit" value="Sign In"/></div>
+            </div>
+            <!--<div>
+                <div id="loginBtn"><input type="submit" value="Sign In"/></div>
+            </div>-->
+        </div>
+    </form>
+</body>
+</html>

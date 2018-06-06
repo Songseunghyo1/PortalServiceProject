@@ -1,0 +1,120 @@
+* { margin: 0; padding: 0;}
+body {
+    font-family: 'Josefin Sans', sans-serif;
+}
+li { list-style: none; }
+a { text-decoration: none; }
+#wrap {
+    overflow: hidden;
+    height: 750px;
+    display : table;
+    width : 100%;
+}
+#wrap > #content_wrap {
+    float: left;
+    width: 100%;
+    margin-right: -200px;
+}
+#content {
+    background: white;
+}
+article {
+    padding: 10px;
+    margin: 10px 0;
+    height: 750px;
+    width: 960px;
+}
+#image{
+    display: inline-block;
+    padding-bottom: 25px;
+}
+/* Fixed sidenav, full height */
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(2,44,64);
+    overflow-x: hidden;
+    padding-top: 20px;
+    display : table-cell;
+    vertical-align : top;
+    text-align : left;
+}
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+    padding: 10px 8px 10px 25px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+    color: #f1f1f1;
+}
+/* Main content */
+.main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+/* Add an active class to the active dropdown button */
+.active {
+    background-color: none;
+    color: white;
+}
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 15px;
+}
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+#content_wrap{
+    display : table-cell;
+    vertical-align : top;
+    text-align : left;
+    width : 800px;
+    padding-left: 250px;
+    padding-top: 10px;
+}
+#head{
+    font-size: 25px;
+    height: 40px;
+}
+#line{
+    width: 100%;
+}
+#account {
+    float: right;
+    margin: -5px 40px;
+}
+#opt{
+    margin-top: 50px;
+    margin-right: 100px;
+}
+#art{
+    width: 700px;
+}
+#bt{
+    display: inline-block;
+    padding: 2px;
+}
