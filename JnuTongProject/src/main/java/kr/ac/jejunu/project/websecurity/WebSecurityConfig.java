@@ -1,4 +1,4 @@
-package kr.ac.jejunu.project;
+package kr.ac.jejunu.project.websecurity;
 
 import kr.ac.jejunu.project.dao.ManagerDao;
 import kr.ac.jejunu.project.management.Manager;

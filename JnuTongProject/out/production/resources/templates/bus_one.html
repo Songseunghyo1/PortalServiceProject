@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/stylesheet/bus_one.css">
 </head>
 <body>
-</nav>
 <div id="wrap">
     <nav id="main_lnb">
         <ul>
@@ -25,25 +24,8 @@
                     <a href="bus_one">시내 버스</a>
                     <a href="bus_two">교내 버스</a>
                 </div>
-                <a href="ect">기타 관리</a>
+                <a href="etc">기타 관리</a>
             </div>
-
-            <script>
-                /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-                var dropdown = document.getElementsByClassName("dropdown-btn");
-                var i;
-                for (i = 0; i < dropdown.length; i++) {
-                    dropdown[i].addEventListener("click", function() {
-                        this.classList.toggle("active");
-                        var dropdownContent = this.nextElementSibling;
-                        if (dropdownContent.style.display === "block") {
-                            dropdownContent.style.display = "none";
-                        } else {
-                            dropdownContent.style.display = "block";
-                        }
-                    });
-                }
-            </script>
         </ul>
     </nav>
     <section>
@@ -70,19 +52,12 @@
                         <option value="학기중">학기 중</option>
                         <option value="방학">방학/공휴일</option>
                     </select>
-                    <button type="button" id ="bt">확인</button>
-
+                    <button type="button" id ="bt">확인</button>s
                 </article>
-
-
             </div>
         </div>
     </section>
 </div>
-</body>
-</html></title>
-</head>
-<body>
-
+<script src="/js/dropdown.js"></script>
 </body>
 </html>

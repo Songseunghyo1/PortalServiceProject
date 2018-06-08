@@ -1,21 +1,18 @@
 #img {
-    float: left;
     margin-right: 10px;
     margin-top: 5px;
 }
 
-#body {
-    align-items: center;
-    width: 960px;
-}
-
 #labels {
-    float: left;
 }
 
 #jnutongImg {
     width: 100px;
     height: 100px;
+}
+
+#main {
+    text-align: center;
 }
 
 #main > div {
@@ -27,6 +24,8 @@
 }
 
 #loginBtn {
-    float: right;
     margin-top: 5px;
+    text-align: right;
 }
+
+

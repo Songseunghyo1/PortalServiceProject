@@ -1,7 +1,7 @@
 package kr.ac.jejunu.project.dao;
 
-import kr.ac.jejunu.project.ConnectionMaker;
-import kr.ac.jejunu.project.JnuTongConnectionMaker;
+import kr.ac.jejunu.project.connection.ConnectionMaker;
+import kr.ac.jejunu.project.connection.JnuTongConnectionMaker;
 import kr.ac.jejunu.project.bus.JnuBusSchedule;
 import org.junit.Before;
 

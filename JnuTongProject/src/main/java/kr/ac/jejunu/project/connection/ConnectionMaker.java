@@ -1,4 +1,4 @@
-package kr.ac.jejunu.project;
+package kr.ac.jejunu.project.connection;
 
 import java.sql.Connection;
 import java.sql.SQLException;
