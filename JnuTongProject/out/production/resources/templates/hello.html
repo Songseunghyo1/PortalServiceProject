@@ -49,19 +49,8 @@
                         관리자 페이지
                     </div>
                     <hr id = "line">
-                        <!--<div>
-                            <ul>
-                                <li>
-                                    <h3>No. : <span th:text="${jnuStationNum}">${jnuStationNum}</span></h3>
-                                    <h3>정류장 이름 : <span th:text="${jnuStationName}">${jnuStationName}</span></h3>
-                                </li>
-                            </ul>
-                        </div>-->
+                        <h3>교내순환버스 정류장</h3>
                     <dl th:each="jnuBusStation : ${jnubusStaionList}">
-                        <dt>id</dt>
-                        <dd th:text="${jnuBusStation}"></dd>
-
-                        <dt>value</dt>
                         <dd th:text="${jnuBusStation}"></dd>
                     </dl>
                 </article>

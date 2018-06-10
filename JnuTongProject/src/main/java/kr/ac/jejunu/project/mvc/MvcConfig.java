@@ -34,9 +34,11 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @RequestMapping("/hello")
     public String index(Model model) throws SQLException, ClassNotFoundException {
-//        model.addAttribute("jnuStationNum", getJnuBusSchedule().get(0).getId());
+        int index = 0;
         model.addAttribute("jnubusStaionList", getJnuBusSchedule());
-
+        /*model.addAttribute("jnuBusStation.id", getJnuBusSchedule().get(index).getId());
+        model.addAttribute("jnuBusStation.name", getJnuBusSchedule().get(index).getName());
+        index += 1;*/
         return "hello";
     }
 
