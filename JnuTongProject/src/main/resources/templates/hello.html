@@ -49,10 +49,19 @@
                         관리자 페이지
                     </div>
                     <hr id = "line">
-                        <h3>교내순환버스 정류장</h3>
-                    <dl th:each="jnuBusStation : ${jnubusStaionList}">
-                        <dd th:text="${jnuBusStation}"></dd>
-                    </dl>
+                    <div>
+                        <table>
+                            <h4 id="jnubustitle">교내순환버스 정류장</h4>
+                            <tr>
+                                <th>정류장ID</th>
+                                <th>정류장</th>
+                            </tr>
+                            <tr th:each="jnuBusStation : ${jnubusStaionList}">
+                                <td th:text="${jnuBusStation.id}"></td>
+                                <td th:text="${jnuBusStation.name}"></td>
+                            </tr>
+                        </table>
+                    </div>
                 </article>
             </div>
         </div>

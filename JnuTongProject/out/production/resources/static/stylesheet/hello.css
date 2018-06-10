@@ -130,3 +130,24 @@ article {
     display: inline-block;
     padding: 2px;
 }
+
+table {
+    font-family: 'Josefin Sans', sans-serif;
+    border-collapse: collapse;
+    margin-top: 10px;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#jnubustitle {
+    margin-top: 10px;
+}
