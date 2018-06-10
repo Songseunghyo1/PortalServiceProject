@@ -4,26 +4,19 @@ import kr.ac.jejunu.project.connection.ConnectionMaker;
 import kr.ac.jejunu.project.connection.JnuTongConnectionMaker;
 import kr.ac.jejunu.project.bus.JnuBusStation;
 import org.junit.Before;
+import org.springframework.stereotype.Component;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.LinkedList;
 
+@Component
 public class JnuBusStationDao {
-    private ConnectionMaker connectionMaker;
-
-    @Before
-    public void setup() {
-        connectionMaker = new JnuTongConnectionMaker();
-    }
+    private ConnectionMaker connectionMaker = new JnuTongConnectionMaker();
 
     public LinkedList<JnuBusStation> get() throws ClassNotFoundException, SQLException {
         Connection connection = connectionMaker.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(
                 "SELECT * FROM jnu_bus_station");
-
         LinkedList<JnuBusStation> jnuBusStations = new LinkedList<>();
 
         ResultSet resultSet = preparedStatement.executeQuery();

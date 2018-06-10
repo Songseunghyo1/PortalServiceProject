@@ -15,7 +15,7 @@ public class ManagerDao {
     public LinkedList<Manager> get() throws ClassNotFoundException, SQLException {
         Connection connection = connectionMaker.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(
-                "SELECT * from managers");
+                "SELECT * from manager");
         LinkedList<Manager> managers = new LinkedList<>();
 
         ResultSet resultSet = preparedStatement.executeQuery();

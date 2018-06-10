@@ -4,6 +4,7 @@ import kr.ac.jejunu.project.connection.ConnectionMaker;
 import kr.ac.jejunu.project.connection.JnuTongConnectionMaker;
 import kr.ac.jejunu.project.bus.BusLineInfo;
 import org.junit.Before;
+import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 
+@Component
 public class BusLineInfoDao {
     private ConnectionMaker connectionMaker;
 

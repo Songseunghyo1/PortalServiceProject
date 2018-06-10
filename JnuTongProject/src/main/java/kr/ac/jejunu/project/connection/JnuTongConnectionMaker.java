@@ -10,7 +10,7 @@ public class JnuTongConnectionMaker implements ConnectionMaker {
     @Value("${db.classname}")
     String classname= "com.mysql.jdbc.Driver";
     @Value("${db.url}")
-    String url = "jdbc:mysql://localhost/jnutongmanagers";
+    String url = "jdbc:mysql://localhost/jnutong";
     @Value("${db. username}")
     String username = "root";
     @Value("${db.password}")

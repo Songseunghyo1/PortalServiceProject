@@ -1,10 +1,25 @@
 package kr.ac.jejunu.project.mvc;
 
+import kr.ac.jejunu.project.bus.JnuBusSchedule;
+import kr.ac.jejunu.project.bus.JnuBusStation;
+import kr.ac.jejunu.project.dao.JnuBusScheduleDao;
+import kr.ac.jejunu.project.dao.JnuBusStationDao;
+import kr.ac.jejunu.project.dao.ManagerDao;
+import kr.ac.jejunu.project.management.Manager;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.sql.SQLException;
+import java.util.LinkedList;
+
+@Controller
 @Configuration
+@ComponentScan
 public class MvcConfig implements WebMvcConfigurer {
 
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -17,4 +32,28 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/etc").setViewName("etc");
     }
 
+    @RequestMapping("/hello")
+    public String index(Model model) throws SQLException, ClassNotFoundException {
+//        model.addAttribute("jnuStationNum", getJnuBusSchedule().get(0).getId());
+        model.addAttribute("jnubusStaionList", getJnuBusSchedule());
+
+        return "hello";
+    }
+
+    private LinkedList<JnuBusStation> getJnuBusSchedule() {
+        JnuBusStationDao jnuBusStationDao = new JnuBusStationDao();
+
+        LinkedList<JnuBusStation> jnuBusStations = null;
+        try {
+            jnuBusStations = jnuBusStationDao.get();
+            for (JnuBusStation j : jnuBusStations) {
+                System.out.println(j);
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return jnuBusStations;
+    }
 }

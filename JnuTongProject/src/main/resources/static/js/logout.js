@@ -1,0 +1,1 @@
+alert("Log out!  Good bye (:");

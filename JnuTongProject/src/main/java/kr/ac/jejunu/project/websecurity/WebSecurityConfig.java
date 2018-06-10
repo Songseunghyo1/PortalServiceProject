@@ -1,5 +1,7 @@
 package kr.ac.jejunu.project.websecurity;
 
+import kr.ac.jejunu.project.bus.JnuBusStation;
+import kr.ac.jejunu.project.dao.JnuBusStationDao;
 import kr.ac.jejunu.project.dao.ManagerDao;
 import kr.ac.jejunu.project.management.Manager;
 import org.springframework.context.annotation.Bean;
@@ -38,19 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     @Override
     public UserDetailsService userDetailsService() {
-        ManagerDao managerDao = new ManagerDao();
-
-        LinkedList<Manager> managers = null;
-        try {
-            managers = managerDao.get();
-            for (Manager m : managers) {
-                System.out.println(m);
-            }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        LinkedList<Manager> managers = getUserAccount();
 
         String id = managers.get(0).getId();
         String role = managers.get(0).getRole();
@@ -64,5 +54,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .build();
 
         return new InMemoryUserDetailsManager(user);
+    }
+
+    private LinkedList<Manager> getUserAccount() {
+        ManagerDao managerDao = new ManagerDao();
+
+        LinkedList<Manager> managers = null;
+        try {
+            managers = managerDao.get();
+            for (Manager m : managers) {
+                System.out.println(m);
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return managers;
     }
 }
