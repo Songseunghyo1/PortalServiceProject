@@ -32,7 +32,7 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/etc").setViewName("etc");
     }
 
-    @RequestMapping("/hello")
+    /*@RequestMapping("/hello")
     public String index(Model model) throws SQLException, ClassNotFoundException {
         int index = 0;
         model.addAttribute("jnubusStaionList", getJnuBusSchedule());
@@ -57,5 +57,5 @@ public class MvcConfig implements WebMvcConfigurer {
             e.printStackTrace();
         }
         return jnuBusStations;
-    }
+    }*/
 }
