@@ -44,28 +44,84 @@
         </nav>
         <div id="content_wrap">
             <div id="content">
-                <article>
+                <article id="jnubusstation">
                     <div id = "head">
                         관리자 페이지
                     </div>
                     <hr id = "line">
                     <div>
                         <table>
-                            <h4 id="jnubustitle">교내순환버스 정류장</h4>
+                            <h4 id="jnubusstationtitle">교내순환버스 정류장</h4>
                             <tr>
                                 <th>정류장ID</th>
                                 <th>정류장</th>
                             </tr>
-                            <tr th:each="jnuBusStation : ${jnubusStaionList}">
+                            <tr th:each="jnuBusStation : ${jnuBusStationList}">
                                 <td th:text="${jnuBusStation.id}"></td>
                                 <td th:text="${jnuBusStation.name}"></td>
                             </tr>
                         </table>
                     </div>
                 </article>
+                <article>
+                    <div>
+                        <table>
+                            <h4>교내순환버스 운행시간표</h4>
+                            <tr>
+                                <th>순번</th>
+                                <th>출발시간</th>
+                                <th>노선</th>
+                                <th>해대 4호관</th>
+                            </tr>
+                            <tr th:each="jnuBusSchedule : ${jnuBusScheduleList}">
+                                <td th:text="${jnuBusSchedule.id}"></td>
+                                <td th:text="${jnuBusSchedule.departureTime}"></td>
+                                <td th:text="${jnuBusSchedule.course}"></td>
+                                <td th:text="${jnuBusSchedule.goOceanScience}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </article>
+                <article>
+                    <div>
+                        <table>
+                            <h4>제주버스</h4>
+                            <tr>
+                                <th>노선ID</th>
+                                <th>노선번호</th>
+                                <th>상세번호</th>
+                                <th>디스크립션</th>
+                            </tr>
+                            <tr th:each="busLineInfo : ${busLineInfoList}">
+                                <td th:text="${busLineInfo.lineId}"></td>
+                                <td th:text="${busLineInfo.lineNo}"></td>
+                                <td th:text="${busLineInfo.detailLineNo}"></td>
+                                <td th:text="${busLineInfo.description}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </article>
+                <article>
+                    <div>
+                        <table>
+                            <h4>제주버스 스케줄</h4>
+                            <tr>
+                                <th>스케줄No</th>
+                                <th>노선ID</th>
+                                <th>출발시간</th>
+                                <th>평일/휴일</th>
+                            </tr>
+                            <tr th:each="busSchedule : ${busScheduleList}">
+                                <td th:text="${busSchedule.scheduleNo}"></td>
+                                <td th:text="${busSchedule.lineId}"></td>
+                                <td th:text="${busSchedule.departureTime}"></td>
+                                <td th:text="${busSchedule.day}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </article>
             </div>
         </div>
-
     </section>
 </div>
 <script src="/js/dropdown.js"></script>

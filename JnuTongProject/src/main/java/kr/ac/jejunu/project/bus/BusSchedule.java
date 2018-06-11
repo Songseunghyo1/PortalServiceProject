@@ -9,5 +9,5 @@ public class BusSchedule {
     private int scheduleNo;
     private String lineId;
     private Time departureTime;
-
+    private String day;
 }

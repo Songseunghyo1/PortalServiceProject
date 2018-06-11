@@ -3,6 +3,7 @@ package kr.ac.jejunu.project.bus;
 import lombok.Data;
 
 import java.sql.Time;
+import java.util.Date;
 
 @Data
 public class JnuBusSchedule {

@@ -40,6 +40,7 @@
             </div>
         </nav>
         <div id="content_wrap">
+
             <div id="content">
                 <article>
                     <div id = "head">교내순환버스
@@ -56,6 +57,23 @@
                         <option value="B노선">B노선</option>
                     </select>
                     <button type="button" id ="bt">확인</button>
+                    <div>
+                        <table>
+                            <h4>교내순환버스 운행시간표</h4>
+                            <tr>
+                                <th>순번</th>
+                                <th>출발시간</th>
+                                <th>노선</th>
+                                <th>해대 4호관</th>
+                            </tr>
+                            <tr th:each="jnuBusSchedule : ${jnuBusScheduleList}">
+                                <td th:text="${jnuBusSchedule.id}"></td>
+                                <td th:text="${jnuBusSchedule.departureTime}"></td>
+                                <td th:text="${jnuBusSchedule.course}"></td>
+                                <td th:text="${jnuBusSchedule.goOceanScience}"></td>
+                            </tr>
+                        </table>
+                    </div>
                 </article>
             </div>
         </div>

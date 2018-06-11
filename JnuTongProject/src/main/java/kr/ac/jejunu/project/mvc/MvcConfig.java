@@ -31,31 +31,4 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/bus_two").setViewName("bus_two");
         registry.addViewController("/etc").setViewName("etc");
     }
-
-    /*@RequestMapping("/hello")
-    public String index(Model model) throws SQLException, ClassNotFoundException {
-        int index = 0;
-        model.addAttribute("jnubusStaionList", getJnuBusSchedule());
-        model.addAttribute("jnubusStaionList.id", getJnuBusSchedule().get(index).getId());
-        model.addAttribute("jnubusStaionList.name", getJnuBusSchedule().get(index).getName());
-
-        return "hello";
-    }
-
-    private LinkedList<JnuBusStation> getJnuBusSchedule() {
-        JnuBusStationDao jnuBusStationDao = new JnuBusStationDao();
-
-        LinkedList<JnuBusStation> jnuBusStations = null;
-        try {
-            jnuBusStations = jnuBusStationDao.get();
-            for (JnuBusStation j : jnuBusStations) {
-                System.out.println(j);
-            }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return jnuBusStations;
-    }*/
 }

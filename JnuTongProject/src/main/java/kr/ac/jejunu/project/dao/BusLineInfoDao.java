@@ -14,12 +14,7 @@ import java.util.LinkedList;
 
 @Component
 public class BusLineInfoDao {
-    private ConnectionMaker connectionMaker;
-
-    @Before
-    public void setup() {
-        connectionMaker = new JnuTongConnectionMaker();
-    }
+    private ConnectionMaker connectionMaker = new JnuTongConnectionMaker();
 
     public LinkedList<BusLineInfo> get() throws SQLException, ClassNotFoundException {
         Connection connection = connectionMaker.getConnection();

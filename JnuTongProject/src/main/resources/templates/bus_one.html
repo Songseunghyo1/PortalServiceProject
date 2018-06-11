@@ -44,7 +44,8 @@
         <div id="content_wrap">
             <div id="content">
                 <article>
-                    <div id = "head">시내버스
+                    <div id = "head">
+                        시내버스
                     </div>
                     <hr id = "line">
                     <select name="option" id="opt">
@@ -53,6 +54,23 @@
                         <option value="방학">방학/공휴일</option>
                     </select>
                     <button type="button" id ="bt">확인</button>
+                    <div>
+                        <table>
+                            <h4>제주버스 스케줄</h4>
+                            <tr>
+                                <th>스케줄No</th>
+                                <th>노선ID</th>
+                                <th>출발시간</th>
+                                <th>평일/휴일</th>
+                            </tr>
+                            <tr th:each="busSchedule : ${busScheduleList}">
+                                <td th:text="${busSchedule.scheduleNo}"></td>
+                                <td th:text="${busSchedule.lineId}"></td>
+                                <td th:text="${busSchedule.departureTime}"></td>
+                                <td th:text="${busSchedule.day}"></td>
+                            </tr>
+                        </table>
+                    </div>
                 </article>
             </div>
         </div>

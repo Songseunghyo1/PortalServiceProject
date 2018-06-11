@@ -3,7 +3,6 @@ package kr.ac.jejunu.project.dao;
 import kr.ac.jejunu.project.connection.ConnectionMaker;
 import kr.ac.jejunu.project.connection.JnuTongConnectionMaker;
 import kr.ac.jejunu.project.bus.JnuBusStation;
-import org.junit.Before;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
