@@ -15,9 +15,9 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 
 @Controller
-@RequestMapping("/bus_one")
+@RequestMapping(method = RequestMethod.GET)
 public class BusOneController {
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping("/bus_one")
     public String index(Model model) {
         int index = 0;
 
@@ -28,6 +28,38 @@ public class BusOneController {
         model.addAttribute("busSchedule.day", getBusSchedule().get(index).getDay());
 
         return "bus_one";
+    }
+
+    /** localhost:8080/bus_one/semester
+     *
+     * */
+    @RequestMapping("/bus_one/semester")
+    public String indexSemester(Model model) {
+        int index = 0;
+
+        model.addAttribute("busScheduleList", getBusSchedule());
+        model.addAttribute("busSchedule.scheduleNo", getBusSchedule().get(index).getScheduleNo());
+        model.addAttribute("busSchedule.lineId", getBusSchedule().get(index).getLineId());
+        model.addAttribute("busSchedule.departureTime", getBusSchedule().get(index).getDepartureTime());
+        model.addAttribute("busSchedule.day", getBusSchedule().get(index).getDay());
+
+        return "semester";
+    }
+
+    /** localhost:8080/bus_one/holiday
+     *
+     * */
+    @RequestMapping("/bus_one/holiday")
+    public String indexHoliday(Model model) {
+        int index = 0;
+
+        model.addAttribute("busScheduleList", getBusSchedule());
+        model.addAttribute("busSchedule.scheduleNo", getBusSchedule().get(index).getScheduleNo());
+        model.addAttribute("busSchedule.lineId", getBusSchedule().get(index).getLineId());
+        model.addAttribute("busSchedule.departureTime", getBusSchedule().get(index).getDepartureTime());
+        model.addAttribute("busSchedule.day", getBusSchedule().get(index).getDay());
+
+        return "holiday";
     }
 
     private LinkedList<BusSchedule> getBusSchedule() {

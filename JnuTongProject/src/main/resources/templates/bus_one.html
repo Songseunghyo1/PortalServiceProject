@@ -45,16 +45,18 @@
             <div id="content">
                 <article>
                     <div id = "head">
-                        시내버스
+                        <span>시내버스</span>
+                        <span id="weekday"><ul id="hol"><li><a href="/bus_one/holiday">방학/공휴일</a></li></ul></span>
+                        <span id="holiday"><ul id="week"><li><a href="/bus_one/semester">평일</a></li></ul></span>
                     </div>
                     <hr id = "line">
                     <select name="option" id="opt">
                         <option value="">선택</option>
-                        <option value="학기중">학기 중</option>
+                        <option value="학기중">학기중</option>
                         <option value="방학">방학/공휴일</option>
                     </select>
                     <button type="button" id ="bt">확인</button>
-                    <div>
+                    <div id="busSchedule">
                         <table>
                             <h4>제주버스 스케줄</h4>
                             <tr>
@@ -77,5 +79,6 @@
     </section>
 </div>
 <script src="/js/dropdown.js"></script>
+<script src="/js/bus_one.js"></script>
 </body>
 </html>
