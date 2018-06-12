@@ -164,3 +164,52 @@ tr:nth-child(even) {
 #jnubusschedule {
     margin-top: 50px;
 }
+
+#weekday {
+    font-size: 15px;
+    float: right;
+    border: 1px solid #818181;
+    border-radius: 0 25px 25px 0;
+}
+
+#holiday {
+    font-size: 15px;
+    float: right;
+    border: 1px solid #818181;
+    border-radius: 25px 0 0 25px;
+}
+
+#editLink {
+    border: 1px solid black;
+}
+
+#week {
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+
+#hol {
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+
+li {
+    margin: 0 5px 0 0;
+    padding: 0 0 0 0;
+    border : 0;
+    float: left;
+}
+
+#holidayList, #weekdayList:link {
+    color: #000;
+}
+
+#holidayList, #weekdayList:visited {
+    color: #000;
+}
+
+#holidayList, #weekdayList:hover {
+    color: #002080;
+}

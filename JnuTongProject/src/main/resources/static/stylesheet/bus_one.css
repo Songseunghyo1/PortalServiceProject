@@ -197,3 +197,15 @@ li {
     border : 0;
     float: left;
 }
+
+#holidayList, #weekdayList:link {
+     color: #000;
+ }
+
+#holidayList, #weekdayList:visited {
+    color: #000;
+}
+
+#holidayList, #weekdayList:hover {
+    color: #002080;
+}
