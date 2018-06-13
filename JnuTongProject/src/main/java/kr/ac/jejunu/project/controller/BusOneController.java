@@ -49,11 +49,11 @@ public class BusOneController {
     public String indexHoliday(Model model) {
         int index = 0;
 
-        model.addAttribute("busScheduleList", getOriginBusSchedule());
-        model.addAttribute("busSchedule.scheduleNo", getOriginBusSchedule().get(index).getScheduleNo());
-        model.addAttribute("busSchedule.lineId", getOriginBusSchedule().get(index).getLineId());
-        model.addAttribute("busSchedule.departureTime", getOriginBusSchedule().get(index).getDepartureTime());
-        model.addAttribute("busSchedule.day", getOriginBusSchedule().get(index).getDay());
+        model.addAttribute("busScheduleList", getHolidayBusSchedule());
+        model.addAttribute("busSchedule.scheduleNo", getHolidayBusSchedule().get(index).getScheduleNo());
+        model.addAttribute("busSchedule.lineId", getHolidayBusSchedule().get(index).getLineId());
+        model.addAttribute("busSchedule.departureTime", getHolidayBusSchedule().get(index).getDepartureTime());
+        model.addAttribute("busSchedule.day", getHolidayBusSchedule().get(index).getDay());
 
         return "holiday";
     }
@@ -119,5 +119,18 @@ public class BusOneController {
         return busSchedules;
     }
 
-//    private LinkedList<BusSchedule>
+    private LinkedList<BusSchedule> getHolidayBusSchedule() {
+        BusScheduleDao busScheduleDao = new BusScheduleDao();
+
+        LinkedList<BusSchedule> busSchedules = null;
+        try {
+            busSchedules = busScheduleDao.getHoliday();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return busSchedules;
+    }
 }
