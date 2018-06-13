@@ -50,7 +50,19 @@ public class JnuBusScheduleDao {
     }
 
     public LinkedList<JnuBusSchedule> getBCourse() throws SQLException, ClassNotFoundException {
+        Connection connection = connectionMaker.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(
+                "SELECT * FROM jnu_bus_schedule WHERE course = 'B'");
 
+        LinkedList<JnuBusSchedule> jnuBusSchedules = new LinkedList<>();
+        ResultSet resultSet = preparedStatement.executeQuery();
+        getFromDatabase(jnuBusSchedules, resultSet);
+
+        resultSet.close();
+        preparedStatement.close();
+        connection.close();
+
+        return jnuBusSchedules;
     }
 
     private void getFromDatabase(LinkedList<JnuBusSchedule> jnuBusSchedules, ResultSet resultSet) throws SQLException {
