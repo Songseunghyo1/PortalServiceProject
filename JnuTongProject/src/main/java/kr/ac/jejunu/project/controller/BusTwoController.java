@@ -31,11 +31,11 @@ public class BusTwoController {
     public String indexACourse(Model model) {
         int index = 0;
 
-        model.addAttribute("jnuBusScheduleList", getJnuBusSchedule());
-        model.addAttribute("jnuBusSchedule.id", getJnuBusSchedule().get(index).getId());
-        model.addAttribute("jnuBusSchedule.departuretime", getJnuBusSchedule().get(index).getDepartureTime());
-        model.addAttribute("jnuBusSchedule.course", getJnuBusSchedule().get(index).getCourse());
-        model.addAttribute("jnuBusSchedule.gooceanscience", getJnuBusSchedule().get(index).getGoOceanScience());
+        model.addAttribute("jnuBusScheduleList", getJnuBusScheduleACourse());
+        model.addAttribute("jnuBusSchedule.id", getJnuBusScheduleACourse().get(index).getId());
+        model.addAttribute("jnuBusSchedule.departuretime", getJnuBusScheduleACourse().get(index).getDepartureTime());
+        model.addAttribute("jnuBusSchedule.course", getJnuBusScheduleACourse().get(index).getCourse());
+        model.addAttribute("jnuBusSchedule.gooceanscience", getJnuBusScheduleACourse().get(index).getGoOceanScience());
 
         return "acourse";
     }
@@ -44,11 +44,11 @@ public class BusTwoController {
     public String indexBCourse(Model model) {
         int index = 0;
 
-        model.addAttribute("jnuBusScheduleList", getJnuBusSchedule());
-        model.addAttribute("jnuBusSchedule.id", getJnuBusSchedule().get(index).getId());
-        model.addAttribute("jnuBusSchedule.departuretime", getJnuBusSchedule().get(index).getDepartureTime());
-        model.addAttribute("jnuBusSchedule.course", getJnuBusSchedule().get(index).getCourse());
-        model.addAttribute("jnuBusSchedule.gooceanscience", getJnuBusSchedule().get(index).getGoOceanScience());
+        model.addAttribute("jnuBusScheduleList", getJnuBusScheduleBCourse());
+        model.addAttribute("jnuBusSchedule.id", getJnuBusScheduleBCourse().get(index).getId());
+        model.addAttribute("jnuBusSchedule.departuretime", getJnuBusScheduleBCourse().get(index).getDepartureTime());
+        model.addAttribute("jnuBusSchedule.course", getJnuBusScheduleBCourse().get(index).getCourse());
+        model.addAttribute("jnuBusSchedule.gooceanscience", getJnuBusScheduleBCourse().get(index).getGoOceanScience());
 
         return "bcourse";
     }
@@ -59,6 +59,36 @@ public class BusTwoController {
         LinkedList<JnuBusSchedule> jnuBusSchedules = null;
         try {
             jnuBusSchedules = jnuBusScheduleDao.getOrigin();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return jnuBusSchedules;
+    }
+
+    private LinkedList<JnuBusSchedule> getJnuBusScheduleACourse() {
+        JnuBusScheduleDao jnuBusScheduleDao = new JnuBusScheduleDao();
+
+        LinkedList<JnuBusSchedule> jnuBusSchedules = null;
+        try {
+            jnuBusSchedules = jnuBusScheduleDao.getACourse();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return jnuBusSchedules;
+    }
+
+    private LinkedList<JnuBusSchedule> getJnuBusScheduleBCourse() {
+        JnuBusScheduleDao jnuBusScheduleDao = new JnuBusScheduleDao();
+
+        LinkedList<JnuBusSchedule> jnuBusSchedules = null;
+        try {
+            jnuBusSchedules = jnuBusScheduleDao.getBCourse();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
