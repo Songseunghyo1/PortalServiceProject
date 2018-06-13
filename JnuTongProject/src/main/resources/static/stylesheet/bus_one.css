@@ -175,6 +175,12 @@ tr:nth-child(even) {
     border-radius: 25px 0 0 25px;
 }
 
+#everyday {
+    font-size: 15px;
+    float: right;
+    border: 1px solid #818181;
+}
+
 #editLink {
     border: 1px solid black;
 }
@@ -207,5 +213,29 @@ li {
 }
 
 #holidayList, #weekdayList:hover {
+    color: #002080;
+}
+
+#weekdayList, #weekdayList:link {
+    color: #000;
+}
+
+#weekdayList, #weekdayList:visited {
+    color: #000;
+}
+
+#weekdayList, #weekdayList:hover {
+    color: #002080;
+}
+
+#everydayList, #weekdayList:link {
+    color: #000;
+}
+
+#everydayList, #weekdayList:visited {
+    color: #000;
+}
+
+#everydayList, #weekdayList:hover {
     color: #002080;
 }

@@ -54,9 +54,9 @@ public class HelloController {
         LinkedList<JnuBusStation> jnuBusStations = null;
         try {
             jnuBusStations = jnuBusStationDao.get();
-            for (JnuBusStation j : jnuBusStations) {
+            /*for (JnuBusStation j : jnuBusStations) {
                 System.out.println(j);
-            }
+            }*/
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -71,9 +71,9 @@ public class HelloController {
         LinkedList<BusLineInfo> busLineInfos = null;
         try {
             busLineInfos = busLineInfoDao.get();
-            for (BusLineInfo b : busLineInfos) {
+            /*for (BusLineInfo b : busLineInfos) {
                 System.out.println(b);
-            }
+            }*/
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -88,9 +88,9 @@ public class HelloController {
         LinkedList<JnuBusSchedule> jnuBusSchedules = null;
         try {
             jnuBusSchedules = jnuBusScheduleDao.get();
-            for (JnuBusSchedule j : jnuBusSchedules) {
+            /*for (JnuBusSchedule j : jnuBusSchedules) {
                 System.out.println(j);
-            }
+            }*/
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -105,10 +105,10 @@ public class HelloController {
 
         LinkedList<BusSchedule> busSchedules = null;
         try {
-            busSchedules = busScheduleDao.get();
-            for (BusSchedule b : busSchedules) {
+            busSchedules = busScheduleDao.getOrigin();
+            /*for (BusSchedule b : busSchedules) {
                 System.out.println(b);
-            }
+            }*/
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

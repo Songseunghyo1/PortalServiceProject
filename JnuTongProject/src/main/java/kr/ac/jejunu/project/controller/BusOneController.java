@@ -1,11 +1,7 @@
 package kr.ac.jejunu.project.controller;
 
 import kr.ac.jejunu.project.bus.BusSchedule;
-import kr.ac.jejunu.project.bus.JnuBusSchedule;
-import kr.ac.jejunu.project.bus.JnuBusStation;
 import kr.ac.jejunu.project.dao.BusScheduleDao;
-import kr.ac.jejunu.project.dao.JnuBusScheduleDao;
-import kr.ac.jejunu.project.dao.JnuBusStationDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,11 +17,11 @@ public class BusOneController {
     public String index(Model model) {
         int index = 0;
 
-        model.addAttribute("busScheduleList", getBusSchedule());
-        model.addAttribute("busSchedule.scheduleNo", getBusSchedule().get(index).getScheduleNo());
-        model.addAttribute("busSchedule.lineId", getBusSchedule().get(index).getLineId());
-        model.addAttribute("busSchedule.departureTime", getBusSchedule().get(index).getDepartureTime());
-        model.addAttribute("busSchedule.day", getBusSchedule().get(index).getDay());
+        model.addAttribute("busScheduleList", getOriginBusSchedule());
+        model.addAttribute("busSchedule.scheduleNo", getOriginBusSchedule().get(index).getScheduleNo());
+        model.addAttribute("busSchedule.lineId", getOriginBusSchedule().get(index).getLineId());
+        model.addAttribute("busSchedule.departureTime", getOriginBusSchedule().get(index).getDepartureTime());
+        model.addAttribute("busSchedule.day", getOriginBusSchedule().get(index).getDay());
 
         return "bus_one";
     }
@@ -33,17 +29,17 @@ public class BusOneController {
     /** localhost:8080/bus_one/semester
      *
      * */
-    @RequestMapping("/bus_one/semester")
+    @RequestMapping("/bus_one/weekday")
     public String indexSemester(Model model) {
         int index = 0;
 
-        model.addAttribute("busScheduleList", getBusSchedule());
-        model.addAttribute("busSchedule.scheduleNo", getBusSchedule().get(index).getScheduleNo());
-        model.addAttribute("busSchedule.lineId", getBusSchedule().get(index).getLineId());
-        model.addAttribute("busSchedule.departureTime", getBusSchedule().get(index).getDepartureTime());
-        model.addAttribute("busSchedule.day", getBusSchedule().get(index).getDay());
+        model.addAttribute("busScheduleList", getOriginBusSchedule());
+        model.addAttribute("busSchedule.scheduleNo", getOriginBusSchedule().get(index).getScheduleNo());
+        model.addAttribute("busSchedule.lineId", getOriginBusSchedule().get(index).getLineId());
+        model.addAttribute("busSchedule.departureTime", getOriginBusSchedule().get(index).getDepartureTime());
+        model.addAttribute("busSchedule.day", getOriginBusSchedule().get(index).getDay());
 
-        return "semester";
+        return "weekday";
     }
 
     /** localhost:8080/bus_one/holiday
@@ -53,27 +49,58 @@ public class BusOneController {
     public String indexHoliday(Model model) {
         int index = 0;
 
-        model.addAttribute("busScheduleList", getBusSchedule());
-        model.addAttribute("busSchedule.scheduleNo", getBusSchedule().get(index).getScheduleNo());
-        model.addAttribute("busSchedule.lineId", getBusSchedule().get(index).getLineId());
-        model.addAttribute("busSchedule.departureTime", getBusSchedule().get(index).getDepartureTime());
-        model.addAttribute("busSchedule.day", getBusSchedule().get(index).getDay());
+        model.addAttribute("busScheduleList", getOriginBusSchedule());
+        model.addAttribute("busSchedule.scheduleNo", getOriginBusSchedule().get(index).getScheduleNo());
+        model.addAttribute("busSchedule.lineId", getOriginBusSchedule().get(index).getLineId());
+        model.addAttribute("busSchedule.departureTime", getOriginBusSchedule().get(index).getDepartureTime());
+        model.addAttribute("busSchedule.day", getOriginBusSchedule().get(index).getDay());
 
         return "holiday";
     }
 
-    private LinkedList<BusSchedule> getBusSchedule() {
+    /** localhost:8080/bus_one/everyday
+     *
+     * */
+    @RequestMapping("/bus_one/everyday")
+    public String indexEveryday(Model model) {
+        int index = 0;
+
+        model.addAttribute("busScheduleList", getEverydayBusSchedule());
+        model.addAttribute("busSchedule.scheduleNo", getEverydayBusSchedule().get(index).getScheduleNo());
+        model.addAttribute("busSchedule.lineId", getEverydayBusSchedule().get(index).getLineId());
+        model.addAttribute("busSchedule.departureTime", getEverydayBusSchedule().get(index).getDepartureTime());
+        model.addAttribute("busSchedule.day", getEverydayBusSchedule().get(index).getDay());
+
+        return "everyday";
+    }
+
+    private LinkedList<BusSchedule> getOriginBusSchedule() {
         BusScheduleDao busScheduleDao = new BusScheduleDao();
 
         LinkedList<BusSchedule> busSchedules = null;
         try {
-            busSchedules = busScheduleDao.get();
-            for (BusSchedule b : busSchedules) {
+            busSchedules = busScheduleDao.getOrigin();
+            /*for (BusSchedule b : busSchedules) {
                 System.out.println(b);
-            }
+            }*/
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return busSchedules;
+    }
+
+    private LinkedList<BusSchedule> getEverydayBusSchedule() {
+        BusScheduleDao busScheduleDao = new BusScheduleDao();
+
+        LinkedList<BusSchedule> busSchedules = null;
+        try {
+            busSchedules = busScheduleDao.getEveryday();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 

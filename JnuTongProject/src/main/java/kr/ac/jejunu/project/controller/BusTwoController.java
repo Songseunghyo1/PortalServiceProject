@@ -59,9 +59,9 @@ public class BusTwoController {
         LinkedList<JnuBusSchedule> jnuBusSchedules = null;
         try {
             jnuBusSchedules = jnuBusScheduleDao.get();
-            for (JnuBusSchedule j : jnuBusSchedules) {
+            /*for (JnuBusSchedule j : jnuBusSchedules) {
                 System.out.println(j);
-            }
+            }*/
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {

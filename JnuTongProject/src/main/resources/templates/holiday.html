@@ -1,10 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>관리자 페이지</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montserrat|Rammetto+One" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheet/bus_one.css">
 </head>
 <body>
-    Hello holiday!
+<div id="wrap">
+    <nav id="main_lnb">
+        <ul>
+
+            <div class="sidenav">
+
+                <div id = "image"><a href="hello"><img src = "/img/jnutong-logo.png"></a></div>
+
+                <button class="dropdown-btn">
+                    <span>버스 관리</span>
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a href="bus_one">시내 버스</a>
+                    <a href="bus_two">교내 버스</a>
+                </div>
+                <a href="etc">기타 관리</a>
+            </div>
+        </ul>
+    </nav>
+    <section>
+        <nav>
+            <div id="account">
+                <div id="hello" th:id="printHello" style="float: left; margin: 10px 10px">
+                    <h3 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h3>
+                </div>
+                <div id="btnsignout" th:id="signoutBtn" style="float: left; margin: 10px 10px">
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Sign Out"/>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div id="content_wrap">
+            <div id="content">
+                <article>
+                    <div id = "head">
+                        <span>시내버스</span>
+                        <span id="weekday"><ul id="hol"><li><a id="holidayList" href="/bus_one/holiday">방학/공휴일</a></li></ul></span>
+                        <span id="everyday"><ul id="eve"><li><a id="everydayList" href="/bus_one/everyday">매일</a></li></ul></span>
+                        <span id="holiday"><ul id="week"><li><a id="weekdayList" href="/bus_one/weekday">평일</a></li></ul></span>
+                    </div>
+                    <hr id = "line">
+                    <div id="busSchedule">
+                        <table>
+                            <h4>제주버스 스케줄</h4>
+                            <tr>
+                                <th>스케줄No</th>
+                                <th>노선ID</th>
+                                <th>출발시간</th>
+                                <th>평일/휴일</th>
+                            </tr>
+                            <tr th:each="busSchedule : ${busScheduleList}">
+                                <td th:text="${busSchedule.scheduleNo}"></td>
+                                <td th:text="${busSchedule.lineId}"></td>
+                                <td th:text="${busSchedule.departureTime}"></td>
+                                <td th:text="${busSchedule.day}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+</div>
+<script src="/js/dropdown.js"></script>
+<script src="/js/bus_one.js"></script>
 </body>
 </html>
