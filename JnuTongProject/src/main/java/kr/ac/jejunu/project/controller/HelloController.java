@@ -87,7 +87,7 @@ public class HelloController {
 
         LinkedList<JnuBusSchedule> jnuBusSchedules = null;
         try {
-            jnuBusSchedules = jnuBusScheduleDao.get();
+            jnuBusSchedules = jnuBusScheduleDao.getOrigin();
             /*for (JnuBusSchedule j : jnuBusSchedules) {
                 System.out.println(j);
             }*/
