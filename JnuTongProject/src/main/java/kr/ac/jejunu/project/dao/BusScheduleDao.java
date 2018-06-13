@@ -23,14 +23,7 @@ public class BusScheduleDao {
         LinkedList<BusSchedule> busSchedules = new LinkedList<>();
 
         ResultSet resultSet = preparedStatement.executeQuery();
-        while (resultSet.next()) {
-            BusSchedule busSchedule = new BusSchedule();
-            busSchedule.setScheduleNo(resultSet.getInt("schedule_no"));
-            busSchedule.setLineId(resultSet.getString("line_id"));
-            busSchedule.setDepartureTime(resultSet.getTime("departure_time"));
-            busSchedule.setDay(resultSet.getString("weekday_holiday"));
-            busSchedules.add(busSchedule);
-        }
+        getFromDatabase(busSchedules, resultSet);
 
         resultSet.close();
         preparedStatement.close();
@@ -47,6 +40,49 @@ public class BusScheduleDao {
         LinkedList<BusSchedule> busSchedules = new LinkedList<>();
 
         ResultSet resultSet = preparedStatement.executeQuery();
+        getFromDatabase(busSchedules, resultSet);
+
+        resultSet.close();
+        preparedStatement.close();
+        connection.close();
+
+        return busSchedules;
+    }
+
+    public LinkedList<BusSchedule> getWeekday() throws ClassNotFoundException, SQLException {
+        Connection connection = connectionMaker.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(
+                "SELECT * FROM bus_schedule WHERE weekday_holiday = 'weekday'");
+
+        LinkedList<BusSchedule> busSchedules = new LinkedList<>();
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        getFromDatabase(busSchedules, resultSet);
+
+        resultSet.close();
+        preparedStatement.close();
+        connection.close();
+
+        return busSchedules;
+    }
+
+    public LinkedList<BusSchedule> getHoliday() throws ClassNotFoundException, SQLException {
+        Connection connection = connectionMaker.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(
+                "SELECT * FROM bus_schedule WHERE weekday_holiday = 'holiday'");
+        LinkedList<BusSchedule> busSchedules = new LinkedList<>();
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        getFromDatabase(busSchedules, resultSet);
+
+        resultSet.close();
+        preparedStatement.close();
+        connection.close();
+
+        return busSchedules;
+    }
+
+    private void getFromDatabase(LinkedList<BusSchedule> busSchedules, ResultSet resultSet) throws SQLException {
         while (resultSet.next()) {
             BusSchedule busSchedule = new BusSchedule();
             busSchedule.setScheduleNo(resultSet.getInt("schedule_no"));
@@ -55,11 +91,7 @@ public class BusScheduleDao {
             busSchedule.setDay(resultSet.getString("weekday_holiday"));
             busSchedules.add(busSchedule);
         }
-
-        resultSet.close();
-        preparedStatement.close();
-        connection.close();
-
-        return busSchedules;
     }
+
+
 }

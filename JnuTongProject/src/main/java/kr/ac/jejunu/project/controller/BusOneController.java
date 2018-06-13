@@ -80,9 +80,6 @@ public class BusOneController {
         LinkedList<BusSchedule> busSchedules = null;
         try {
             busSchedules = busScheduleDao.getOrigin();
-            /*for (BusSchedule b : busSchedules) {
-                System.out.println(b);
-            }*/
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -93,6 +90,21 @@ public class BusOneController {
     }
 
     private LinkedList<BusSchedule> getEverydayBusSchedule() {
+        BusScheduleDao busScheduleDao = new BusScheduleDao();
+
+        LinkedList<BusSchedule> busSchedules = null;
+        try {
+            busSchedules = busScheduleDao.getEveryday();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return busSchedules;
+    }
+
+    private LinkedList<BusSchedule> getWeekdayBusSchedule() {
         BusScheduleDao busScheduleDao = new BusScheduleDao();
 
         LinkedList<BusSchedule> busSchedules = null;
