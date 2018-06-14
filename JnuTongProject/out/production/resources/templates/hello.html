@@ -120,6 +120,23 @@
                         </table>
                     </div>
                 </article>
+                <article>
+                    <div>
+                        <h4>제주대학교 학사일정</h4>
+                        <table>
+                            <tr>
+                                <th>No.</th>
+                                <th>날짜</th>
+                                <th>일정</th>
+                            </tr>
+                            <tr th:each="jnuEventSchedule : ${jnuEventList}">
+                                <td th:text="${jnuEventSchedule.num}"></td>
+                                <td th:text="${jnuEventSchedule.date}"></td>
+                                <td th:text="${jnuEventSchedule.name}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </article>
             </div>
         </div>
     </section>

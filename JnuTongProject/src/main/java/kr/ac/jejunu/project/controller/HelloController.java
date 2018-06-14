@@ -4,10 +4,8 @@ import kr.ac.jejunu.project.bus.BusLineInfo;
 import kr.ac.jejunu.project.bus.BusSchedule;
 import kr.ac.jejunu.project.bus.JnuBusSchedule;
 import kr.ac.jejunu.project.bus.JnuBusStation;
-import kr.ac.jejunu.project.dao.BusLineInfoDao;
-import kr.ac.jejunu.project.dao.BusScheduleDao;
-import kr.ac.jejunu.project.dao.JnuBusScheduleDao;
-import kr.ac.jejunu.project.dao.JnuBusStationDao;
+import kr.ac.jejunu.project.dao.*;
+import kr.ac.jejunu.project.event.JnuEvent;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,6 +42,11 @@ public class HelloController {
         model.addAttribute("busSchedule.lineId", getBusSchedule().get(index).getLineId());
         model.addAttribute("busSchedule.departureTime", getBusSchedule().get(index).getDepartureTime());
         model.addAttribute("busSchedule.day", getBusSchedule().get(index).getDay());
+
+        model.addAttribute("jnuEventList", getEventSchedule());
+        model.addAttribute("jnuEventSchedule.num", getEventSchedule().get(index).getNum());
+        model.addAttribute("jnuEventSchedule.date", getEventSchedule().get(index).getDate());
+        model.addAttribute("jnuEventSchedule.name", getEventSchedule().get(index).getName());
 
         return "hello";
     }
@@ -116,5 +119,20 @@ public class HelloController {
         }
 
         return busSchedules;
+    }
+
+    private LinkedList<JnuEvent> getEventSchedule() {
+        JnuEventDao jnuEventDao = new JnuEventDao();
+
+        LinkedList<JnuEvent> jnuEvents = null;
+        try {
+            jnuEvents = jnuEventDao.get();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return jnuEvents;
     }
 }
