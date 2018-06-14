@@ -213,3 +213,11 @@ li {
 #holidayList, #weekdayList:hover {
     color: #002080;
 }
+
+#edit {
+    float: right;
+}
+
+#save {
+    float: right;
+}

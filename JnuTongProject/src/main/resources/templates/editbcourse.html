@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montserrat|Rammetto+One" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheet/bus_two.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 <div id="wrap">
@@ -13,6 +14,7 @@
         <ul>
             <div class="sidenav">
                 <div id = "image"><a href="/hello"><img src = "/img/jnutong-logo.png"></a></div>
+
                 <button class="dropdown-btn">
                     <span>버스 관리</span>
                     <i class="fa fa-caret-down"></i>
@@ -50,7 +52,7 @@
                     <hr id = "line">
                     <div>
                         <h4>교내순환버스 운행시간표</h4>
-                        <a id="edit" href="/bus_two/editbcourse"><button>Edit</button></a>
+                        <a id="save" href="#"><button>저장</button></a>
                         <table>
                             <tr>
                                 <th>순번</th>
@@ -58,11 +60,11 @@
                                 <th>노선</th>
                                 <th>해대 4호관</th>
                             </tr>
-                            <tr th:each="jnuBusSchedule : ${jnuBusScheduleList}">
-                                <td th:text="${jnuBusSchedule.id}"></td>
-                                <td th:text="${jnuBusSchedule.departureTime}"></td>
-                                <td th:text="${jnuBusSchedule.course}"></td>
-                                <td th:text="${jnuBusSchedule.goOceanScience}"></td>
+                            <tr class="data" th:each="jnuBusSchedule : ${jnuBusScheduleList}">
+                                <td class="jnuSchedule_id" th:text="${jnuBusSchedule.id}"></td>
+                                <td class="jnuSchedule_departureTime" th:text="${jnuBusSchedule.departureTime}"></td>
+                                <td class="jnuSchedule_course"><input type="text" value="time" th:attr="value=${jnuBusSchedule.course}"/></td>
+                                <td class="jnuSchedule_gooceanscience"><input type="text" value="text" th:attr="value=${jnuBusSchedule.goOceanScience}"/></td>
                             </tr>
                         </table>
                     </div>

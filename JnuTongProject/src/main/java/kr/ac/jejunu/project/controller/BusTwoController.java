@@ -53,6 +53,32 @@ public class BusTwoController {
         return "bcourse";
     }
 
+    @RequestMapping("/bus_two/editacourse")
+    public String indexEditACourse(Model model) {
+        int index = 0;
+
+        model.addAttribute("jnuBusScheduleList", getJnuBusScheduleACourse());
+        model.addAttribute("jnuBusSchedule.id", getJnuBusScheduleACourse().get(index).getId());
+        model.addAttribute("jnuBusSchedule.departureTime", getJnuBusScheduleACourse().get(index).getDepartureTime());
+        model.addAttribute("jnuBusSchedule.course", getJnuBusScheduleACourse().get(index).getCourse());
+        model.addAttribute("jnuBusSchedule.goOceanScience", getJnuBusScheduleACourse().get(index).getGoOceanScience());
+
+        return "editacourse";
+    }
+
+    @RequestMapping("/bus_two/editbcourse")
+    public String indexEditBCourse(Model model) {
+        int index = 0;
+
+        model.addAttribute("jnuBusScheduleList", getJnuBusScheduleBCourse());
+        model.addAttribute("jnuBusSchedule.id", getJnuBusScheduleBCourse().get(index).getId());
+        model.addAttribute("jnuBusSchedule.departureTime", getJnuBusScheduleBCourse().get(index).getDepartureTime());
+        model.addAttribute("jnuBusSchedule.course", getJnuBusScheduleBCourse().get(index).getCourse());
+        model.addAttribute("jnuBusSchedule.goOceanScience", getJnuBusScheduleBCourse().get(index).getGoOceanScience());
+
+        return "editbcourse";
+    }
+
     private LinkedList<JnuBusSchedule> getJnuBusSchedule() {
         JnuBusScheduleDao jnuBusScheduleDao = new JnuBusScheduleDao();
 
