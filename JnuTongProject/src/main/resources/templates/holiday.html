@@ -11,20 +11,17 @@
 <div id="wrap">
     <nav id="main_lnb">
         <ul>
-
             <div class="sidenav">
-
                 <div id = "image"><a href="hello"><img src = "/img/jnutong-logo.png"></a></div>
-
                 <button class="dropdown-btn">
                     <span>버스 관리</span>
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-container">
-                    <a href="bus_one">시내 버스</a>
-                    <a href="bus_two">교내 버스</a>
+                    <a href="/bus_one">시내 버스</a>
+                    <a href="/bus_two">교내 버스</a>
                 </div>
-                <a href="etc">기타 관리</a>
+                <a href="/etc">기타 관리</a>
             </div>
         </ul>
     </nav>
@@ -52,8 +49,9 @@
                     </div>
                     <hr id = "line">
                     <div id="busSchedule">
+                        <h4>제주버스 스케줄</h4>
+                        <a id="edit" href="/bus_one/editweekday"><button>Edit</button></a>
                         <table>
-                            <h4>제주버스 스케줄</h4>
                             <tr>
                                 <th>스케줄No</th>
                                 <th>노선ID</th>

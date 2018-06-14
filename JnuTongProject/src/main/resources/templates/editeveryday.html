@@ -5,14 +5,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montserrat|Rammetto+One" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheet/bus_two.css">
+    <link rel="stylesheet" href="/stylesheet/bus_one.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 <div id="wrap">
     <nav id="main_lnb">
         <ul>
+
             <div class="sidenav">
-                <div id = "image"><a href="/hello"><img src = "/img/jnutong-logo.png"></a></div>
+
+                <div id = "image"><a href="hello"><img src = "/img/jnutong-logo.png"></a></div>
 
                 <button class="dropdown-btn">
                     <span>버스 관리</span>
@@ -40,29 +43,30 @@
             </div>
         </nav>
         <div id="content_wrap">
-
             <div id="content">
                 <article>
                     <div id = "head">
-                        <span>교내순환버스</span>
-                        <span id="weekday"><ul id="hol"><li><a id="holidayList" href="/bus_two/bcourse">B노선</a></li></ul></span>
-                        <span id="holiday"><ul id="week"><li><a id="weekdayList" href="/bus_two/acourse">A노선</a></li></ul></span>
+                        <span>시내버스</span>
+                        <span id="weekday"><ul id="hol"><li><a id="holidayList" href="/bus_one/holiday">방학/공휴일</a></li></ul></span>
+                        <span id="everyday"><ul id="eve"><li><a id="everydayList" href="/bus_one/everyday">매일</a></li></ul></span>
+                        <span id="holiday"><ul id="week"><li><a id="weekdayList" href="/bus_one/weekday">평일</a></li></ul></span>
                     </div>
                     <hr id = "line">
-                    <div>
+                    <div id="busSchedule">
+                        <h4>제주버스 스케줄</h4>
+                        <a id="save" href="#"><button>저장</button></a>
                         <table>
-                            <h4>교내순환버스 운행시간표</h4>
                             <tr>
-                                <th>순번</th>
+                                <th>스케줄No</th>
+                                <th>노선ID</th>
                                 <th>출발시간</th>
-                                <th>노선</th>
-                                <th>해대 4호관</th>
+                                <th>평일/휴일</th>
                             </tr>
-                            <tr th:each="jnuBusSchedule : ${jnuBusScheduleList}">
-                                <td th:text="${jnuBusSchedule.id}"></td>
-                                <td th:text="${jnuBusSchedule.departureTime}"></td>
-                                <td th:text="${jnuBusSchedule.course}"></td>
-                                <td th:text="${jnuBusSchedule.goOceanScience}"></td>
+                            <tr class="data" th:each="busSchedule : ${busScheduleList}">
+                                <td class="schedule_no" th:text="${busSchedule.scheduleNo}"></td>
+                                <td class="schedule_line" th:text="${busSchedule.lineId}"></td>
+                                <td class="schedule_time"><input type="text" value="time" th:attr="value=${busSchedule.departureTime}"/></td>
+                                <td class="schedule_day"><input type="text" value="text" th:attr="value=${busSchedule.day}"/></td>
                             </tr>
                         </table>
                     </div>
@@ -71,6 +75,7 @@
         </div>
     </section>
 </div>
+
 <script src="/js/dropdown.js"></script>
 </body>
 </html>

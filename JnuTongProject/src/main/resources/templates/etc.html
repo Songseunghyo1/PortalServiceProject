@@ -21,10 +21,10 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-container">
-                    <a href="bus_one">시내 버스</a>
-                    <a href="bus_two">교내 버스</a>
+                    <a href="/bus_one">시내 버스</a>
+                    <a href="/bus_two">교내 버스</a>
                 </div>
-                <a href="etc">기타 관리</a>
+                <a href="/etc">기타 관리</a>
             </div>
         </ul>
     </nav>
@@ -47,12 +47,19 @@
                     <div id = "head">기타
                     </div>
                     <hr id = "line">
-                    <select name="option" id="opt">
-                        <option value="">선택</option>
-                        <option value="학사일정">학사일정</option>
-                    </select>
-                    <button type="button" id ="bt">확인</button>
-
+                    <div>
+                        <table>
+                            <h4>제주대학 교학사일정</h4>
+                            <tr>
+                                <th>날짜</th>
+                                <th>일정</th>
+                            </tr>
+                            <tr th:each="jnuEventSchedule : ${jnuBusScheduleList}">
+                                <td th:text="${jnuEventSchedule.date}"></td>
+                                <td th:text="${jnuEventSchedule.name}"></td>
+                            </tr>
+                        </table>
+                    </div>
                 </article>
 
 
