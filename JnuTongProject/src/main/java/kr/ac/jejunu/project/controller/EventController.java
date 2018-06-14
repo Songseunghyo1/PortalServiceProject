@@ -20,11 +20,23 @@ public class EventController {
         int index = 0;
 
         model.addAttribute("jnuBusScheduleList", getEventSchedule());
-        model.addAttribute("jnuEventSchedule.date", getEventSchedule().get(index).getNum());
+        model.addAttribute("jnuEventSchedule.num", getEventSchedule().get(index).getNum());
         model.addAttribute("jnuEventSchedule.date", getEventSchedule().get(index).getDate());
         model.addAttribute("jnuEventSchedule.name", getEventSchedule().get(index).getName());
 
         return "etc";
+    }
+
+    @RequestMapping("/etc/editetc")
+    public String indexEditEtc(Model model) {
+        int index = 0;
+
+        model.addAttribute("jnuEventList", getEventSchedule());
+        model.addAttribute("jnuEventSchedule.num", getEventSchedule().get(index).getNum());
+        model.addAttribute("jnuEventSchedule.date", getEventSchedule().get(index).getDate());
+        model.addAttribute("jnuEventSchedule.name", getEventSchedule().get(index).getName());
+
+        return "editetc";
     }
 
     private LinkedList<JnuEvent> getEventSchedule() {

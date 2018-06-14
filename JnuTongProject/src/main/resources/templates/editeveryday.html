@@ -65,7 +65,9 @@
                             <tr class="data" th:each="busSchedule : ${busScheduleList}">
                                 <td class="schedule_no" th:text="${busSchedule.scheduleNo}"></td>
                                 <td class="schedule_line" th:text="${busSchedule.lineId}"></td>
-                                <td class="schedule_time"><input type="text" value="time" th:attr="value=${busSchedule.departureTime}"/></td>
+                                <td class="schedule_time">
+                                    <input type="text" value="time" th:attr="value=${busSchedule.departureTime}"/>
+                                </td>
                                 <td class="schedule_day"><input type="text" value="text" th:attr="value=${busSchedule.day}"/></td>
                             </tr>
                         </table>

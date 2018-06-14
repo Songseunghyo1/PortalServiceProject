@@ -49,17 +49,21 @@
                     <hr id = "line">
                     <div>
                         <h4>제주대학 교학사일정</h4>
-                        <a id="edit" href="/etc/editetc"><button>Edit</button></a>
+                        <a id="save" href="#"><button>저장</button></a>
                         <table>
                             <tr>
                                 <th>No.</th>
                                 <th>날짜</th>
                                 <th>일정</th>
                             </tr>
-                            <tr th:each="jnuEventSchedule : ${jnuEventList}">
-                                <td th:text="${jnuEventSchedule.num}"></td>
-                                <td th:text="${jnuEventSchedule.date}"></td>
-                                <td th:text="${jnuEventSchedule.name}"></td>
+                            <tr class="data" th:each="jnuEventSchedule : ${jnuEventList}">
+                                <td class="jnuEvent_num" th:text="${jnuEventSchedule.num}"></td>
+                                <td class="jnuEvent_date">
+                                    <input type="text" th:attr="value=${jnuEventSchedule.date}"/>
+                                </td>
+                                <td class="jnuEvent_name">
+                                    <input type="text" th:attr="value=${jnuEventSchedule.name}"/>
+                                </td>
                             </tr>
                         </table>
                     </div>
