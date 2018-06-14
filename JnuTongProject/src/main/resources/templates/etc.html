@@ -51,10 +51,12 @@
                         <table>
                             <h4>제주대학 교학사일정</h4>
                             <tr>
+                                <th>No.</th>
                                 <th>날짜</th>
                                 <th>일정</th>
                             </tr>
                             <tr th:each="jnuEventSchedule : ${jnuBusScheduleList}">
+                                <td th:text="${jnuEventSchedule.num}"></td>
                                 <td th:text="${jnuEventSchedule.date}"></td>
                                 <td th:text="${jnuEventSchedule.name}"></td>
                             </tr>

@@ -20,6 +20,7 @@ public class EventController {
         int index = 0;
 
         model.addAttribute("jnuBusScheduleList", getEventSchedule());
+        model.addAttribute("jnuEventSchedule.date", getEventSchedule().get(index).getNum());
         model.addAttribute("jnuEventSchedule.date", getEventSchedule().get(index).getDate());
         model.addAttribute("jnuEventSchedule.name", getEventSchedule().get(index).getName());
 
