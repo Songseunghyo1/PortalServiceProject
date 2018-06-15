@@ -2,13 +2,19 @@ package kr.ac.jejunu.project.controller;
 
 import kr.ac.jejunu.project.bus.BusSchedule;
 import kr.ac.jejunu.project.dao.BusScheduleDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(method = RequestMethod.GET)
@@ -90,6 +96,8 @@ public class BusOneController {
         return "editweekday";
     }
 
+
+
     /** localhost:8080/bus_one/editeveryday
      *
      * */
@@ -106,6 +114,21 @@ public class BusOneController {
         return "editeveryday";
     }
 
+    /** localhost:8080/bus_one/editeveryday
+     *
+     * */
+    @RequestMapping("/bus_one/editholiday")
+    public String indexEditHoliday(Model model) {
+        int index = 0;
+
+        model.addAttribute("busScheduleList", getHolidayBusSchedule());
+        model.addAttribute("busSchedule.scheduleNo", getHolidayBusSchedule().get(index).getScheduleNo());
+        model.addAttribute("busSchedule.lineId", getHolidayBusSchedule().get(index).getLineId());
+        model.addAttribute("busSchedule.departureTime", getHolidayBusSchedule().get(index).getDepartureTime());
+        model.addAttribute("busSchedule.day", getHolidayBusSchedule().get(index).getDay());
+
+        return "editholiday";
+    }
     private LinkedList<BusSchedule> getOriginBusSchedule() {
         BusScheduleDao busScheduleDao = new BusScheduleDao();
 

@@ -65,8 +65,8 @@
                             <tr class="data" th:each="busSchedule : ${busScheduleList}">
                                 <td class="schedule_no" th:text="${busSchedule.scheduleNo}"></td>
                                 <td class="schedule_line" th:text="${busSchedule.lineId}"></td>
-                                <td class="schedule_time"><input type="text" value="time" th:attr="value=${busSchedule.departureTime}"/></td>
-                                <td class="schedule_day"><input type="text" value="text" th:attr="value=${busSchedule.day}"/></td>
+                                <td><input class="schedule_time" type="text" value="time" th:attr="value=${busSchedule.departureTime}"/></td>
+                                <td><input class="schedule_day" type="text" value="text" th:attr="value=${busSchedule.day}"/></td>
                             </tr>
                         </table>
                     </div>
@@ -75,7 +75,6 @@
         </div>
     </section>
 </div>
-
 <script src="/js/dropdown.js"></script>
 </body>
 </html>

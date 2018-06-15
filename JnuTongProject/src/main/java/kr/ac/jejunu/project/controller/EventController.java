@@ -19,7 +19,7 @@ public class EventController {
     public String index(Model model) {
         int index = 0;
 
-        model.addAttribute("jnuBusScheduleList", getEventSchedule());
+        model.addAttribute("jnuEventList", getEventSchedule());
         model.addAttribute("jnuEventSchedule.num", getEventSchedule().get(index).getNum());
         model.addAttribute("jnuEventSchedule.date", getEventSchedule().get(index).getDate());
         model.addAttribute("jnuEventSchedule.name", getEventSchedule().get(index).getName());

@@ -10,4 +10,14 @@ public class BusSchedule {
     private String lineId;
     private Time departureTime;
     private String day;
+
+    @Override
+    public String toString() {
+        return "BusSchedule{" +
+                "scheduleNo=" + scheduleNo +
+                ", lineId='" + lineId + '\'' +
+                ", departureTime=" + departureTime +
+                ", day='" + day + '\'' +
+                '}';
+    }
 }
